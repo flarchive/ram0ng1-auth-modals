@@ -1,0 +1,71 @@
+// O `!important` vence os estilos do `.Button` do core.
+.AuthModals-headerBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+
+  &--login {
+    border: 1.5px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    background: transparent !important;
+
+    &:hover {
+      background: color-mix(in srgb, var(--primary-color) 8%, transparent) !important;
+    }
+  }
+
+  &--signup {
+    background: var(--primary-color) !important;
+    // Branco some numa cor primária clara; o mesmo contraste do ícone do modal.
+    color: contrast(@primary-color, #333, #fff) !important;
+    border: none !important;
+
+    &:hover {
+      opacity: 0.88 !important;
+    }
+  }
+}
+
+.AuthModals-headerSep {
+  font-size: 11px;
+  color: var(--muted-color);
+  align-self: center;
+  padding: 0 4px;
+  opacity: 0.85;
+}
+
+// Com o header colorido o fundo vira a cor primária, então os botões usam a
+// cor de texto que o core escolhe para o header.
+[data-colored-header=true] {
+  .AuthModals-headerBtn--login {
+    border-color: var(--header-color) !important;
+    color: var(--header-color) !important;
+
+    &:hover {
+      background: color-mix(in srgb, var(--header-color) 15%, transparent) !important;
+    }
+  }
+
+  .AuthModals-headerBtn--signup {
+    background: var(--header-color) !important;
+    color: var(--header-bg) !important;
+
+    &:hover {
+      opacity: 0.9 !important;
+    }
+  }
+
+  .AuthModals-headerSep {
+    color: var(--header-color) !important;
+    opacity: 0.75;
+  }
+}

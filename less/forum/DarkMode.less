@@ -1,0 +1,11 @@
+[data-theme^=dark] {
+  // Botão de fechar sobre a imagem: superfície escura em vez da sombra clara.
+  .Modal-content:has(.AuthModals-panel) .Modal-close {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+}
